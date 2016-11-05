@@ -2,12 +2,12 @@
 
 const express = require('express');
 const dateConverter = require('./dateConverter');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.get('/', function (req, res) {
-    console.log(req.url)
-    res.send('Hello World!')
+    res.sendFile(path.join(__dirname+'/index.html'));
 })
 
 app.use(function (req, res, next) {
